@@ -1,27 +1,30 @@
-const playerArray = [];
+let count = 0;
+const btnSelect = document.getElementsByClassName("btn-select");
 
-function updatingList(listName){
-  const tableBody = document.getElementById('table-body');
-  tableBody.innerHTML = " ";
+for (selector of btnSelect) {
+  selector.addEventListener("click", function (event) {
+    count++;
+    const playerName = event.target.parentNode.parentNode.childNodes[1].innerText;
+    const selected = event.target.setAttribute("disabled", "");
 
-  for (let i = 0; i < listName.length; i++){
-    const singlePlayerName = playerArray[i];
-    const tr = document.createElement('tr');
+    if (count > 5) {
+      const selected = event.target.removeAttribute("disabled");
 
-    tr.innerHTML = `
-    <th>${i + 1}</th>
-    <td>${singlePlayerName}</td>
-    `
+      alert(" Can't add more then 5 player");
+      return;
+    }
 
-    tableBody.appendChild(tr);
-  }
-}
+    const selectedPlayer = document.getElementById("player-list");
+    const totalSelectedPlayer = parseFloat(selectedPlayer.innerText);
+    selectedPlayer.innerText = count;
 
-const selectedPlayer = document.getElementById('player-list');
-function addToTheList(element){
-    const playerName = element.parentNode.parentNode.children[0].innerText;
-    playerArray.push(playerName);
-    
-    selectedPlayer.innerText = playerArray.length;
-    updatingList(playerArray);
+    const mainContainer = document.getElementById("table-body");
+
+    const bodyContainer = document.createElement("tr");
+    bodyContainer.innerHTML = `
+       <th scope="row">${count}</th>
+       <td>${playerName}</td>
+       `;
+    mainContainer.appendChild(bodyContainer);
+  });
 }

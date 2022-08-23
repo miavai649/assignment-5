@@ -18,3 +18,6 @@ header {
 .banner-item h1 {
   color: #f2aa4cff;
 }
+.btn-select:disabled {
+  background-color: gray;
+}
