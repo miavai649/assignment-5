@@ -41,7 +41,7 @@
                 <h2 class="card-title">Neymar Jr</h2>
                 <p>46 Goals . 130 Assist</p>
                 <div class="card-actions mt-9">
-                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold">Buy Now</button>
+                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold" onclick="addToTheList(this)">Buy Now</button>
                 </div>
               </div>
             </div>
@@ -53,7 +53,7 @@
                 <h2 class="card-title">Lionel Messi</h2>
                 <p>41 Goals . 131 Assist</p>
                 <div class="card-actions mt-9">
-                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold">Buy Now</button>
+                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold" onclick="addToTheList(this)">Buy Now</button>
                 </div>
               </div>
             </div>
@@ -65,7 +65,7 @@
                 <h2 class="card-title">Sergio Ramos</h2>
                 <p>18 Goals . 70 Assist</p>
                 <div class="card-actions mt-9">
-                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold">Buy Now</button>
+                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold" onclick="addToTheList(this)">Buy Now</button>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@
                 <h2 class="card-title">Mesut Özil</h2>
                 <p>28 Goals . 128 Assist</p>
                 <div class="card-actions mt-9">
-                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold">Buy Now</button>
+                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold" onclick="addToTheList(this)">Buy Now</button>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
                 <h2 class="card-title">Vítor Machado</h2>
                 <p>26 Goals . 60 Assist</p>
                 <div class="card-actions mt-9">
-                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold">Buy Now</button>
+                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold" onclick="addToTheList(this)">Buy Now</button>
                 </div>
               </div>
             </div>
@@ -101,7 +101,7 @@
                 <h2 class="card-title">Vítor Machado</h2>
                 <p>17 Goals . 40 Assist</p>
                 <div class="card-actions mt-9">
-                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold">Buy Now</button>
+                  <button class="bg-amber-500 px-6 py-3 rounded-lg text-black font-bold" onclick="addToTheList(this)">Buy Now</button>
                 </div>
               </div>
             </div>
@@ -114,11 +114,12 @@
               <table class="table w-full">
                 <!-- head -->
                 <thead>
-                  <tr class="text-center">
-                    <th class="text-3xl">Selected Player - <span class="text-orange-600">0</span></th>
+                  <tr>
+                    <th></th>
+                    <th class="text-3xl">Selected Player - <span id="player-list" class="text-orange-600">0</span></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="table-body">
                   
                 </tbody>
               </table>
@@ -129,23 +130,23 @@
               <img src="images/marker.png" alt="" class="mx-auto mt1">
               <div class="mt-4 flex justify-between px-5">
                 <p class="text-white text-xl font-semibold">Per Player :</p>
-                <input class="w-2/4 px-20 py-1 text-black" type="text" placeholder="Please enter amount">
+                <input class="w-2/4 px-20 py-1 text-black" id="Player-salary" type="text" placeholder="Please enter amount">
               </div>
-              <button class="bg-amber-500 px-28 py-3 rounded text-black font-bold my-5 hover:bg-orange-600">Calculate</button>
-              <h1 class="mb-2 text-white text-2xl font-bold">Player Expenses : $<span>000</span></h1>
+              <button id="btn-calculate" class="bg-amber-500 px-28 py-3 rounded text-black font-bold my-5 hover:bg-orange-600">Calculate</button>
+              <h1 class="mb-2 text-white text-2xl font-bold">Player Expenses : $<span id="player-expenses">000</span></h1>
               <img class="mx-auto mt-1" src="images/marker.png" alt="">
               <div class="my-5 flex justify-between px-5">
                 <p class="text-white text-xl font-semibold">Manager :</p>
-                <input class="w-2/4 px-20 py-1 text-black" type="text" placeholder="Please enter amount">
+                <input class="w-2/4 px-20 py-1 text-black" id="manager-cost" type="text" placeholder="Please enter amount">
               </div>
               <div class="flex justify-between px-5">
                 <p class="text-white text-xl font-semibold">Coach :</p>
-                <input class="w-2/4 px-20 py-1 text-black" type="text" placeholder="Please enter amount">
+                <input class="w-2/4 px-20 py-1 text-black" id="coach-cost" type="text" placeholder="Please enter amount">
               </div>
-              <button class="bg-amber-500 px-28 py-3 rounded text-black font-bold my-5 hover:bg-orange-600">Calculate Total</button>
+              <button id="btn-total" class="bg-amber-500 px-28 py-3 rounded text-black font-bold my-5 hover:bg-orange-600">Calculate Total</button>
               <div class="inline flex justify-around">
                 <h1 class="text-white text-5xl font-bold">Total :</h1>
-                <pn class="text-white text-5xl font-bold">$<span>000</span></p>
+                <pn class="text-white text-5xl font-bold">$<span id="total-cost">000</span></p>
               </div>
             </div>
           </div>
@@ -156,5 +157,8 @@
     <footer class="footer footer-center p-4 bg-neutral mt-16 h-36">
       <p class="text-center footer-text">Copyright © 2022 - All right reserved</p>
     </footer>
+    <script src="js/list.js"></script>
+    <script src="js/utilities.js"></script>
+    <script src="js/budget.js"></script>
   </body>
 </html>
